@@ -30,6 +30,7 @@ function add() {
     const currentTitle = parentBtn.previousSibling.previousSibling.innerHTML;
     dataBase = dataBase.filter((x) => (x.author !== currentAuthor) || (x.title !== currentTitle));
     parentBtn.parentElement.remove();
+    localStorage.setItem('baseData', JSON.stringify(dataBase));
   });
 }
 
@@ -44,4 +45,35 @@ btnAdd.addEventListener('click', () => {
 
   newBook = new Store(nameTitle, nameAuthor);
   add();
+
+  localStorage.setItem('baseData', JSON.stringify(dataBase));
 });
+
+if (localStorage.getItem('baseData')) {
+  dataBase = JSON.parse(localStorage.getItem('baseData'));
+  for (let i = 0; i < dataBase.length; i += 1) {
+    const table = document.getElementById('tbody');
+    const row = document.createElement('tr');
+    table.appendChild(row);
+    const dataTitle = document.createElement('td');
+    dataTitle.textContent = dataBase[i].title;
+    row.appendChild(dataTitle);
+    const dataAuthor = document.createElement('td');
+    dataAuthor.textContent = dataBase[i].author;
+    row.appendChild(dataAuthor);
+    const dataRemove = document.createElement('td');
+    row.appendChild(dataRemove);
+    btnRemove = document.createElement('button');
+    btnRemove.textContent = 'Remove';
+    dataRemove.appendChild(btnRemove);
+
+    btnRemove.addEventListener('click', (e) => {
+      const parentBtn = e.target.parentNode;
+      const currentAuthor = parentBtn.previousSibling.innerHTML;
+      const currentTitle = parentBtn.previousSibling.previousSibling.innerHTML;
+      dataBase = dataBase.filter((x) => (x.author !== currentAuthor) || (x.title !== currentTitle));
+      parentBtn.parentElement.remove();
+      localStorage.setItem('baseData', JSON.stringify(dataBase));
+    });
+  }
+}
