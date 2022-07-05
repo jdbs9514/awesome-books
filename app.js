@@ -6,6 +6,15 @@ const btnAdd = document.getElementById('button');
 let dataBase = [];
 
 // this function adds new input information to the dataBase and the HTML table
+
+function Remove(parentBtn) {
+  const currentAuthor = parentBtn.previousSibling.innerHTML;
+  const currentTitle = parentBtn.previousSibling.previousSibling.innerHTML;
+  dataBase = dataBase.filter((x) => (x.author !== currentAuthor) || (x.title !== currentTitle));
+  parentBtn.parentElement.remove();
+  localStorage.setItem('baseData', JSON.stringify(dataBase));
+}
+
 function add() {
   dataBase.push(newBook);
   const table = document.getElementById('tbody');
@@ -26,11 +35,7 @@ function add() {
   // remove action
   btnRemove.addEventListener('click', (e) => {
     const parentBtn = e.target.parentNode;
-    const currentAuthor = parentBtn.previousSibling.innerHTML;
-    const currentTitle = parentBtn.previousSibling.previousSibling.innerHTML;
-    dataBase = dataBase.filter((x) => (x.author !== currentAuthor) || (x.title !== currentTitle));
-    parentBtn.parentElement.remove();
-    localStorage.setItem('baseData', JSON.stringify(dataBase));
+    Remove(parentBtn);
   });
 }
 
@@ -69,11 +74,7 @@ if (localStorage.getItem('baseData')) {
 
     btnRemove.addEventListener('click', (e) => {
       const parentBtn = e.target.parentNode;
-      const currentAuthor = parentBtn.previousSibling.innerHTML;
-      const currentTitle = parentBtn.previousSibling.previousSibling.innerHTML;
-      dataBase = dataBase.filter((x) => (x.author !== currentAuthor) || (x.title !== currentTitle));
-      parentBtn.parentElement.remove();
-      localStorage.setItem('baseData', JSON.stringify(dataBase));
+      Remove(parentBtn);
     });
   }
 }
