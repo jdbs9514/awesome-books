@@ -1,4 +1,5 @@
 let newBook;
+let btnRemove;
 
 // dataBase is the collection for all the books info
 const dataBase = [];
@@ -19,9 +20,17 @@ function add() {
   row.appendChild(dataAuthor);
   const dataRemove = document.createElement('td');
   row.appendChild(dataRemove);
-  const btnRemove = document.createElement('button');
+  btnRemove = document.createElement('button');
   btnRemove.textContent = 'Remove';
   dataRemove.appendChild(btnRemove);
+  // remove action
+  btnRemove.addEventListener('click', () => {
+    const parentBtn = btnRemove.parentNode;
+    console.log(parentBtn);
+    const currentTitle = parentBtn.previousSibling.innerText;
+    console.log(currentTitle);
+    //const currentAuthor = 
+  })
 }
 
 const btnAdd = document.getElementById('button');
@@ -36,6 +45,7 @@ btnAdd.addEventListener('click', () => {
   const nameAuthor = document.getElementById('author').value;
 
   newBook = new Store(nameTitle, nameAuthor);
-  // console.log(newBook);
   add();
 });
+
+
