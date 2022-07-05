@@ -1,15 +1,14 @@
 let newBook;
 let btnRemove;
+const btnAdd = document.getElementById('button');
 
 // dataBase is the collection for all the books info
-const dataBase = [];
+let dataBase = [];
 
 // this function adds new input information to the dataBase and the HTML table
 function add() {
   dataBase.push(newBook);
-  console.log(dataBase);
-
-  const table = document.getElementById('tbody'); 
+  const table = document.getElementById('tbody');
   const row = document.createElement('tr');
   table.appendChild(row);
   const dataTitle = document.createElement('td');
@@ -23,17 +22,16 @@ function add() {
   btnRemove = document.createElement('button');
   btnRemove.textContent = 'Remove';
   dataRemove.appendChild(btnRemove);
-  // remove action
-  btnRemove.addEventListener('click', () => {
-    const parentBtn = btnRemove.parentNode;
-    console.log(parentBtn);
-    const currentTitle = parentBtn.previousSibling.innerText;
-    console.log(currentTitle);
-    //const currentAuthor = 
-  })
-}
 
-const btnAdd = document.getElementById('button');
+  // remove action
+  btnRemove.addEventListener('click', (e) => {
+    const parentBtn = e.target.parentNode;
+    const currentAuthor = parentBtn.previousSibling.innerHTML;
+    const currentTitle = parentBtn.previousSibling.previousSibling.innerHTML;
+    dataBase = dataBase.filter((x) => (x.author !== currentAuthor) || (x.title !== currentTitle));
+    parentBtn.parentElement.remove();
+  });
+}
 
 btnAdd.addEventListener('click', () => {
   function Store(title, author) {
@@ -47,5 +45,3 @@ btnAdd.addEventListener('click', () => {
   newBook = new Store(nameTitle, nameAuthor);
   add();
 });
-
-
