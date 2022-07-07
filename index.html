@@ -11,28 +11,46 @@
 
 <body>
   <header>
-    <h1 class="title">Awesome Books</h1>
+    <div class="nav-bar">
+      <h3>Awesome Books</h3>
+      <nav class="nav-list">
+        <ul class="nav-ul">
+          <li>List</li>
+          <li>Add new</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </div>
+    <div id="date"></div>
+    
   </header>
   <main>
-    <table id="table" class="table">
-      <thead>
-        <tr>
-          <td></td>
-          <td></td>
-          <!--<td><button type="button" class="remove">Remove</button></td>-->
-        </tr>
-      </thead>
-      <tbody id="tbody">
-        <!-- elements created with JS -->
-      </tbody>
-    </table>
-    <div></div>
-    <h2>Add a new book</h2>
-    <form class="form" action="#">
-      <input id="book" type="text" placeholder="title" class="book-title" required>
-      <input id="author" type="text" placeholder="author" class="author-title" required>
-      <button id="button" type="button" class="add">Add</button>
-    </form>
+    <section class="section-table">
+      <h1 class="title">Awesome Books</h1>
+      <table id="table" class="table">
+        <thead>
+          <tr>
+            <td></td>
+            <td></td>
+            <!--<td><button type="button" class="remove">Remove</button></td>-->
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <!-- elements created with JS -->
+        </tbody>
+      </table>
+    </section>
+    
+    <section class="section-add">
+      <h2>Add a new book</h2>
+      <form class="form" action="#">
+        <input id="book" type="text" placeholder="title" class="book-title" required>
+        <input id="author" type="text" placeholder="author" class="author-title" required>
+        <button id="button" type="button" class="add">Add</button>
+      </form>
+    </section>
+
+    <section class="section-contact"></section>
   </main>
   <script src="class.js"></script>
 </body>
