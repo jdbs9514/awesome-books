@@ -3,3 +3,49 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'PT Serif', serif;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 13%;
+  gap: 0.5rem;
+}
+
+.book-title {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 1%;
+}
+
+.author-title {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 1%;
+}
+
+.add {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 1%;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
