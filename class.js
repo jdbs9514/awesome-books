@@ -55,3 +55,119 @@ if (localStorage.getItem('baseData')) {
     newBook.displayBook();
   }
 }
+
+// sections variables //
+const list = document.querySelector('.section-table');
+const add = document.querySelector('.section-add');
+const contact = document.querySelector('.section-contact');
+
+// navbar variables //
+const listLink = document.getElementById('list');
+const addLink = document.getElementById('add');
+const contactLink = document.getElementById('contact');
+let includeActive = false;
+
+listLink.addEventListener('click', () => {
+  for (var i = 0; i < list.classList.length; i += 1) {
+    if(list.classList[i] === "active") {
+      includeActive = true;
+    }
+  }
+
+  if(includeActive === false){
+    list.classList.add('active');
+  }
+
+  // review if section-add have the class 'active'//
+  for (var i = 0; i < add.classList.length; i +=1) {
+    if (add.classList[i] === "active") {
+      includeActive = true;
+    }
+  }
+
+  if (includeActive === true) {
+    add.classList.remove('active');
+  }
+
+  //review if section-content have the class 'active'//
+  for (var i = 0; i < contact.classList.length; i +=1) {
+    if (contact.classList[i] === 'active') {
+      includeActive = true;
+    }
+  }
+
+  if (includeActive === true) {
+    contact.classList.remove('active');
+  }
+  console.log(list.classList);
+});
+
+addLink.addEventListener('click', () => {
+  for (var i = 0; i < add.classList.length; i += 1) {
+    if(add.classList[i] === "active") {
+      includeActive = true;
+    }
+  }
+
+  if(includeActive === false){
+    add.classList.add('active');
+  }
+
+  // review if section-table has the class 'active'//
+  for (var i = 0; i < list.classList.length; i +=1) {
+    if (list.classList[i] === 'active') {
+      includeActive = true;
+    }
+  }
+
+  if (includeActive === true) {
+    list.classList.remove('active');
+  }
+
+  // review if section-contact has the class 'active' //
+  for (var i = 0; i < contact.classList.length; i +=1) {
+    if (contact.classList[i] === 'active') {
+      includeActive = true;
+    }
+  }
+
+  if (includeActive === true){
+    contact.classList.remove('active');
+  }
+  console.log(add.classList);
+});
+
+contactLink.addEventListener('click', () => {
+  for (var i = 0; i < contact.classList.length; i += 1) {
+    if(contact.classList[i] === "active") {
+      includeActive = true;
+    }
+  }
+
+  if(includeActive === false){
+    contact.classList.add('active');
+  }
+
+  // review if section-table has the class 'active' //
+  for (var i = 0; list.classList.length; i +=1){
+    if (list.classList[i] === "active") {
+      includeActive = true;
+    }
+  }
+
+  if (includeActive = true) {
+    list.classList.remove('active');
+  }
+
+  // review if section-add has the class 'active' //
+  for (var i = 0; i < add.classList.length; i +=1) {
+    if (add.classList[i] === 'active') {
+      includeActive = true;
+    }
+  }
+
+  if (includeActive === true) {
+    add.classList.remove('active');
+  }
+  console.log(contact.classList);
+});
