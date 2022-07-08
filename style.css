@@ -59,7 +59,7 @@ h2 {
 }
 
 .section-contact.active {
-  display: flex;
+  display: block;
 }
 
 .table {

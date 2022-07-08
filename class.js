@@ -58,65 +58,76 @@ if (localStorage.getItem('baseData')) {
 
 // sections variables //
 const list = document.querySelector('.section-table');
-const add = document.querySelector('.section-add');
+const addNew = document.querySelector('.section-add');
 const contact = document.querySelector('.section-contact');
 
 // navbar variables //
 const listLink = document.getElementById('list');
 const addLink = document.getElementById('add');
 const contactLink = document.getElementById('contact');
-let includeActive = false;
+let includeActive;
 
+// Add click event for list link - Make section-table appears //
 listLink.addEventListener('click', () => {
-  for (var i = 0; i < list.classList.length; i += 1) {
-    if(list.classList[i] === "active") {
+  for (let i = 0; i < list.classList.length; i += 1) {
+    if (list.classList[i] === 'active') {
       includeActive = true;
+    } else {
+      includeActive = false;
     }
   }
 
-  if(includeActive === false){
+  if (includeActive === false) {
     list.classList.add('active');
   }
 
   // review if section-add have the class 'active'//
-  for (var i = 0; i < add.classList.length; i +=1) {
-    if (add.classList[i] === "active") {
+  for (let i = 0; i < addNew.classList.length; i += 1) {
+    if (addNew.classList[i] === 'active') {
       includeActive = true;
+    } else {
+      includeActive = false;
     }
   }
 
   if (includeActive === true) {
-    add.classList.remove('active');
+    addNew.classList.remove('active');
   }
 
-  //review if section-content have the class 'active'//
-  for (var i = 0; i < contact.classList.length; i +=1) {
+  // review if section-content have the class 'active'//
+  for (let i = 0; i < contact.classList.length; i += 1) {
     if (contact.classList[i] === 'active') {
       includeActive = true;
+    } else {
+      includeActive = false;
     }
   }
 
   if (includeActive === true) {
     contact.classList.remove('active');
   }
-  console.log(list.classList);
 });
 
+// Add click event for Add new link - Make section-add appears //
 addLink.addEventListener('click', () => {
-  for (var i = 0; i < add.classList.length; i += 1) {
-    if(add.classList[i] === "active") {
+  for (let i = 0; i < addNew.classList.length; i += 1) {
+    if (addNew.classList[i] === 'active') {
       includeActive = true;
+    } else {
+      includeActive = false;
     }
   }
 
-  if(includeActive === false){
-    add.classList.add('active');
+  if (includeActive === false) {
+    addNew.classList.add('active');
   }
 
   // review if section-table has the class 'active'//
-  for (var i = 0; i < list.classList.length; i +=1) {
+  for (let i = 0; i < list.classList.length; i += 1) {
     if (list.classList[i] === 'active') {
       includeActive = true;
+    } else {
+      includeActive = false;
     }
   }
 
@@ -125,49 +136,53 @@ addLink.addEventListener('click', () => {
   }
 
   // review if section-contact has the class 'active' //
-  for (var i = 0; i < contact.classList.length; i +=1) {
+  for (let i = 0; i < contact.classList.length; i += 1) {
     if (contact.classList[i] === 'active') {
       includeActive = true;
-    }
-  }
-
-  if (includeActive === true){
-    contact.classList.remove('active');
-  }
-  console.log(add.classList);
-});
-
-contactLink.addEventListener('click', () => {
-  for (var i = 0; i < contact.classList.length; i += 1) {
-    if(contact.classList[i] === "active") {
-      includeActive = true;
-    }
-  }
-
-  if(includeActive === false){
-    contact.classList.add('active');
-  }
-
-  // review if section-table has the class 'active' //
-  for (var i = 0; list.classList.length; i +=1){
-    if (list.classList[i] === "active") {
-      includeActive = true;
-    }
-  }
-
-  if (includeActive = true) {
-    list.classList.remove('active');
-  }
-
-  // review if section-add has the class 'active' //
-  for (var i = 0; i < add.classList.length; i +=1) {
-    if (add.classList[i] === 'active') {
-      includeActive = true;
+    } else {
+      includeActive = false;
     }
   }
 
   if (includeActive === true) {
-    add.classList.remove('active');
+    contact.classList.remove('active');
   }
-  console.log(contact.classList);
+});
+
+// Add click event for Contact link - Make section-contact appears //
+contactLink.addEventListener('click', () => {
+  for (let i = 0; i < contact.classList.length; i += 1) {
+    if (contact.classList[i] === 'active') {
+      includeActive = true;
+    } else {
+      includeActive = false;
+    }
+  }
+  if (includeActive === false) {
+    contact.classList.add('active');
+  }
+
+  // review if section-table has the class 'active' //
+  for (let i = 0; i < list.classList.length; i += 1) {
+    if (list.classList[i] === 'active') {
+      includeActive = true;
+    } else {
+      includeActive = false;
+    }
+  }
+  if (includeActive === true) {
+    list.classList.remove('active');
+  }
+
+  // review if section-add has the class 'active' //
+  for (let i = 0; i < addNew.classList.length; i += 1) {
+    if (addNew.classList[i] === 'active') {
+      includeActive = true;
+    } else {
+      includeActive = false;
+    }
+  }
+  if (includeActive === true) {
+    addNew.classList.remove('active');
+  }
 });
